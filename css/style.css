@@ -6,19 +6,20 @@
 ============================================ */
 :root {
   /* Colors */
-  --color-navy:      #0d1b2a;
-  --color-navy-mid:  #1a2e45;
-  --color-orange:    #f4622a;
-  --color-orange-dk: #d44e1e;
+  --color-navy:      #060e1a;
+  --color-navy-mid:  #0f2035;
+  --color-navy-light:#162840;
+  --color-orange:    #ff5214;
+  --color-orange-dk: #e04410;
   --color-white:     #ffffff;
-  --color-off-white: #f5f7fa;
-  --color-text:      #1a1a2e;
+  --color-off-white: #f4f6f9;
+  --color-text:      #111827;
   --color-muted:     #6b7280;
   --color-border:    #e5e7eb;
 
   /* Typography */
   --font-heading: 'Syne', sans-serif;
-  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Figtree', sans-serif;
 
   /* Spacing scale */
   --space-xs:  0.5rem;   /*  8px */
@@ -813,6 +814,138 @@ a.contact-option__value:hover {
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--color-muted);
+}
+
+/* ============================================
+   ANIMATIONS
+   Staggered fade-in for hero elements.
+   CSS keyframes = no JavaScript needed.
+   animation-delay staggers each element so
+   they appear one after another, not all at once.
+============================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 82, 20, 0.5); }
+  70%  { box-shadow: 0 0 0 12px rgba(255, 82, 20, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 82, 20, 0); }
+}
+
+.hero__eyebrow {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.1s;
+}
+
+.hero__content h1 {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.25s;
+}
+
+.hero__sub {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.4s;
+}
+
+.hero__actions {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.55s;
+}
+
+.hero__trust {
+  animation: fadeUp 0.5s ease both;
+  animation-delay: 0.7s;
+}
+
+/* Pulse on the primary CTA — draws the eye on mobile */
+.hero__actions .btn--primary {
+  animation: fadeUp 0.5s ease both, pulse-ring 2.5s ease-out 1.5s infinite;
+}
+
+/* ============================================
+   SECTION HEADING ACCENT
+   An orange underline on h2 elements inside
+   sections. The ::after pseudo-element adds
+   content after the heading without extra HTML.
+============================================ */
+.section h2,
+.services-snap h2,
+.reviews-snap h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.section h2::after,
+.services-snap h2::after,
+.reviews-snap h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: var(--color-orange);
+  border-radius: 2px;
+}
+
+/* ============================================
+   HERO TEXTURE & DIAGONAL CUT
+   The background pattern is pure CSS —
+   two overlapping radial gradients creating
+   a subtle dot grid. Zero extra files, zero
+   extra load time.
+   clip-path cuts a diagonal at the bottom of
+   the hero — a visual technique that makes
+   sections feel connected rather than stacked.
+============================================ */
+.hero.section--dark {
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px),
+    var(--color-navy);
+  background-size: 28px 28px;
+  clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
+  padding-bottom: calc(var(--space-xl) + 3rem);
+}
+
+/* ============================================
+   TRUST BAR — upgraded to dark
+   Pulls the emergency tone through from hero
+   rather than breaking to a light grey strip.
+============================================ */
+.trust-bar.section--tinted {
+  background: var(--color-navy-mid);
+  margin-top: -1px; /* remove any gap after clip-path */
+}
+
+.trust-bar__list li {
+  color: rgba(255,255,255,0.85);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   SERVICE CARDS — always-on accent border
+   The orange left border is now always visible,
+   not just on hover. Cards feel more structured
+   and premium at rest.
+============================================ */
+.service-card {
+  border-left: 3px solid var(--color-orange) !important;
+}
+
+.service-card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
 }
 
 /* ============================================
