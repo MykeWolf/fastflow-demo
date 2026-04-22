@@ -36,6 +36,65 @@
 }
 
 /* ============================================
+   LUCIDE ICONS
+   SVG icons from Lucide — rendered via JS.
+   We control size and colour with CSS here,
+   not inline attributes, so they stay on-brand.
+============================================ */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon svg {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Service card icons — large, orange */
+.service-card__icon {
+  font-size: 2rem;
+  color: var(--color-orange);
+}
+
+/* Service block icons on services page */
+.service-block__icon {
+  font-size: 2.5rem;
+  color: var(--color-orange);
+}
+
+/* Trust bar icons — small, inline */
+.trust-bar__list li .icon {
+  font-size: 1rem;
+  margin-right: 4px;
+  vertical-align: -2px;
+}
+
+/* Contact page icons */
+.contact-option__icon {
+  font-size: 1.5rem;
+  color: var(--color-orange);
+}
+
+/* Call bar icons */
+.call-bar .icon {
+  font-size: 1.1rem;
+}
+
+/* Nav phone icon */
+.nav__phone .icon,
+.btn .icon {
+  font-size: 1rem;
+}
+
+/* ============================================
    RESET
    Browsers apply their own default styles.
    This wipes them so we start from a clean slate.

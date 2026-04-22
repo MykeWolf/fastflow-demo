@@ -52,7 +52,7 @@
         <!-- Left: contact options -->
         <div class="contact-details">
           <div class="contact-option">
-            <span class="contact-option__icon">📞</span>
+            <span class="contact-option__icon icon"><i data-lucide="phone-call"></i></span>
             <div>
               <p class="contact-option__label">Call us — fastest response</p>
               <a href="tel:+35301234567" class="contact-option__value">01 234 5678</a>
@@ -61,7 +61,7 @@
           </div>
 
           <div class="contact-option">
-            <span class="contact-option__icon">💬</span>
+            <span class="contact-option__icon icon"><i data-lucide="message-circle"></i></span>
             <div>
               <p class="contact-option__label">WhatsApp</p>
               <a href="https://wa.me/35301234567" class="contact-option__value">Message us on WhatsApp</a>
@@ -70,7 +70,7 @@
           </div>
 
           <div class="contact-option">
-            <span class="contact-option__icon">📍</span>
+            <span class="contact-option__icon icon"><i data-lucide="map-pin"></i></span>
             <div>
               <p class="contact-option__label">Areas we cover</p>
               <p class="contact-option__value" style="font-size:1rem;">Ranelagh · Rathmines · Terenure · Crumlin · Rathfarnham</p>
@@ -78,7 +78,7 @@
           </div>
 
           <div class="contact-option">
-            <span class="contact-option__icon">💳</span>
+            <span class="contact-option__icon icon"><i data-lucide="credit-card"></i></span>
             <div>
               <p class="contact-option__label">Payment</p>
               <p class="contact-option__note">Cash and all major cards accepted. Invoice available for landlords and businesses.</p>
@@ -155,10 +155,12 @@
   </footer>
 
   <div class="call-bar">
-    <a href="tel:+35301234567">📞 Call Now</a>
-    <a href="contact.html">✉ Get a Quote</a>
+    <a href="tel:+35301234567"><span class="icon"><i data-lucide="phone-call"></i></span> Call Now</a>
+    <a href="contact.html"><span class="icon"><i data-lucide="mail"></i></span> Get a Quote</a>
   </div>
 
   <script src="js/main.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
