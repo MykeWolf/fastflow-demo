@@ -1,0 +1,6 @@
+[2026-04-22T17:37:41.403Z] GET https://usefastflow.netlify.app/ → 200 (690ms, 11471B)
+[2026-04-22T17:37:42.097Z] GET https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Syne:wght@700;800&display=swap → 200 (69ms, 4738B)
+[2026-04-22T17:37:42.097Z] GET https://usefastflow.netlify.app/css/style.css → 200 (143ms, ?B)
+[2026-04-22T17:37:42.097Z] GET https://usefastflow.netlify.app/js/main.js → 200 (143ms, ?B)
+[2026-04-22T17:37:42.383Z] GET https://fonts.gstatic.com/s/figtree/v9/_Xms-HUzqDCFdgfMm4S9DQ.woff2 → 200 (135ms, 20156B)
+[2026-04-22T17:37:42.383Z] GET https://fonts.gstatic.com/s/syne/v24/8vIH7w4qzmVxm2BL9A.woff2 → 200 (110ms, 34608B)
