@@ -146,6 +146,27 @@
   vertical-align: -1px;
 }
 
+/* Service list check icons */
+.check-icon {
+  color: var(--color-orange);
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+.check-icon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  stroke: var(--color-orange);
+  stroke-width: 2.5;
+}
+
+/* Area card map-pin icon */
+.area-card h3 svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: var(--color-orange);
+  vertical-align: -2px;
+}
+
 /* Hero eyebrow icon */
 .hero__eyebrow svg {
   width: 0.9rem;
