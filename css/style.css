@@ -375,6 +375,58 @@ p {
 /* ============================================
    HERO
 ============================================ */
+
+/* Two-column layout on desktop */
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+/* Stats card — hidden on mobile, shown on desktop */
+.hero__stats-card {
+  display: none;
+}
+
+.hero__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hero__stat-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1;
+}
+
+.hero__stat-unit {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.hero__stat-label {
+  width: 100%;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.hero__stat-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin-block: var(--space-md);
+}
+
 .hero__eyebrow {
   font-size: 0.95rem;
   font-weight: 700;
@@ -398,9 +450,14 @@ p {
 
 .hero__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* stack on mobile */
   gap: var(--space-sm);
   margin-bottom: var(--space-lg);
+}
+
+.hero__actions .btn {
+  width: 100%;
+  justify-content: center;
 }
 
 .hero__trust {
@@ -983,6 +1040,30 @@ a.contact-option__value:hover {
 
   .reviews-snap__grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Hero: switch to side-by-side on desktop */
+  .hero__layout {
+    grid-template-columns: 1fr 380px;
+  }
+
+  .hero__actions {
+    flex-direction: row; /* side by side on desktop */
+  }
+
+  .hero__actions .btn {
+    width: auto;
+  }
+
+  .hero__stats-card {
+    display: block;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    backdrop-filter: blur(8px);
+    animation: fadeUp 0.5s ease both;
+    animation-delay: 0.8s;
   }
 }
 
