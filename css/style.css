@@ -1,0 +1,860 @@
+/* ============================================
+   DESIGN TOKENS
+   These are the single source of truth for
+   all colours, fonts, and spacing in the site.
+   Change a value here and it updates everywhere.
+============================================ */
+:root {
+  /* Colors */
+  --color-navy:      #0d1b2a;
+  --color-navy-mid:  #1a2e45;
+  --color-orange:    #f4622a;
+  --color-orange-dk: #d44e1e;
+  --color-white:     #ffffff;
+  --color-off-white: #f5f7fa;
+  --color-text:      #1a1a2e;
+  --color-muted:     #6b7280;
+  --color-border:    #e5e7eb;
+
+  /* Typography */
+  --font-heading: 'Syne', sans-serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  /* Spacing scale */
+  --space-xs:  0.5rem;   /*  8px */
+  --space-sm:  1rem;     /* 16px */
+  --space-md:  1.5rem;   /* 24px */
+  --space-lg:  2.5rem;   /* 40px */
+  --space-xl:  4rem;     /* 64px */
+  --space-2xl: 6rem;     /* 96px */
+
+  /* Sizing */
+  --max-width: 1140px;
+  --radius:    6px;
+  --radius-lg: 12px;
+}
+
+/* ============================================
+   RESET
+   Browsers apply their own default styles.
+   This wipes them so we start from a clean slate.
+============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Prevent sticky call bar from overlapping last content on mobile */
+  padding-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   TYPOGRAPHY
+============================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+
+p {
+  font-size: 1.05rem;
+  color: var(--color-muted);
+}
+
+/* Only constrain line length in prose contexts, not inside cards/grids */
+.hero__sub,
+.areas-intro,
+.service-block > .container > p,
+.contact-form-wrap > p,
+.page-hero p {
+  max-width: 65ch;
+}
+
+/* ============================================
+   LAYOUT UTILITIES
+============================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+.section {
+  padding-block: var(--space-xl);
+}
+
+.section--dark {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.section--dark p {
+  color: rgba(255,255,255,0.75);
+}
+
+.section--tinted {
+  background: var(--color-off-white);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background: var(--color-orange-dk);
+  transform: translateY(-1px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.btn--outline:hover {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+.btn--lg {
+  padding: 1rem 2.25rem;
+  font-size: 1.1rem;
+  min-height: 56px;
+}
+
+/* ============================================
+   HEADER & NAV
+============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-navy);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-sm);
+}
+
+.nav__logo {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.nav__logo span {
+  color: var(--color-orange);
+}
+
+.nav__phone {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-orange);
+  display: none; /* shown on desktop via media query */
+}
+
+.nav__links {
+  display: none; /* hidden on mobile, shown on desktop */
+  gap: var(--space-md);
+}
+
+.nav__links a {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav__links a:hover,
+.nav__links a.is-active {
+  color: var(--color-orange);
+}
+
+.nav__links a.is-active {
+  border-bottom: 2px solid var(--color-orange);
+  padding-bottom: 2px;
+}
+
+.nav__cta {
+  /* always visible */
+}
+
+.nav__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--space-xs);
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-white);
+  transition: all 0.3s;
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: var(--color-navy-mid);
+  padding: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.mobile-menu.is-open {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-block: var(--space-xs);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ============================================
+   STICKY CALL BAR (mobile bottom)
+   This stays fixed to the bottom of the screen
+   on mobile — the single most important CTA
+   on any trades website.
+============================================ */
+.call-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.call-bar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-white);
+}
+
+.call-bar a + a {
+  border-left: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.site-footer {
+  background: var(--color-navy);
+  color: rgba(255,255,255,0.7);
+  padding-block: var(--space-lg);
+  padding-bottom: calc(var(--space-lg) + 64px); /* space for call bar */
+}
+
+.footer__grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.footer__brand {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.footer__brand span {
+  color: var(--color-orange);
+}
+
+.site-footer a:not(.btn) {
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+
+.site-footer a:not(.btn):hover {
+  color: var(--color-orange);
+}
+
+.footer__copy {
+  font-size: 0.85rem;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+/* ============================================
+   PAGE HERO (inner pages)
+============================================ */
+.page-hero h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-sm);
+}
+
+.page-hero p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   HERO
+============================================ */
+.hero__eyebrow {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-orange);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__content h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.hero__sub {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: var(--space-lg);
+  max-width: 58ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+/* ============================================
+   TRUST BAR
+============================================ */
+.trust-bar__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding-block: var(--space-md);
+  justify-content: center;
+}
+
+.trust-bar__list li {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+/* ============================================
+   SERVICES SNAPSHOT
+============================================ */
+.services-snap h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.services-snap > .container > p {
+  margin-bottom: var(--space-lg);
+}
+
+.services-snap__grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+.service-card {
+  display: block;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.service-card {
+  border-left: 3px solid transparent;
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+  border-left-color: var(--color-orange);
+}
+
+.service-card__icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.service-card h3 {
+  color: var(--color-navy);
+  margin-bottom: var(--space-xs);
+}
+
+/* ============================================
+   CONTACT PAGE (contact.html)
+============================================ */
+.contact-layout {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.contact-option {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.contact-option__icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-option__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  margin-bottom: 4px;
+}
+
+.contact-option__value {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  display: block;
+  margin-bottom: 4px;
+}
+
+a.contact-option__value {
+  color: var(--color-orange);
+  transition: color 0.2s;
+}
+
+a.contact-option__value:hover {
+  color: var(--color-orange-dk);
+}
+
+.contact-option__note {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  max-width: none;
+}
+
+/* Form */
+.contact-form-wrap {
+  background: var(--color-off-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+}
+
+.contact-form-wrap h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.contact-form-wrap > p {
+  margin-bottom: var(--space-lg);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-text);
+  background: var(--color-white);
+  transition: border-color 0.2s;
+  min-height: 48px; /* accessibility tap target */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+}
+
+/* ============================================
+   REVIEWS PAGE (reviews.html)
+============================================ */
+.reviews-summary {
+  padding-block: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.reviews-summary__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.reviews-summary__score {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.reviews-summary__number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1;
+}
+
+.reviews-summary__stars {
+  font-size: 1.5rem;
+}
+
+.reviews-summary__count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.reviews-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-summary__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   AREAS (areas.html)
+   CSS Grid: 1 column mobile, 2 columns tablet+
+   Each card is a self-contained area entry.
+============================================ */
+.areas-intro {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 70ch;
+  margin-bottom: var(--space-xl);
+}
+
+.areas-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: 1fr;
+}
+
+.area-card {
+  background: var(--color-off-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.area-card h3 {
+  color: var(--color-navy);
+}
+
+.area-card p {
+  flex: 1;
+}
+
+.area-card--cta {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.area-card--cta h3 {
+  color: var(--color-white);
+}
+
+.area-card--cta p {
+  color: rgba(255,255,255,0.75);
+}
+
+@media (min-width: 640px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   SERVICES LIST (services.html)
+   Full-width blocks, one per service.
+   Alternating white/tinted for visual rhythm.
+============================================ */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.service-block {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.service-block--tinted {
+  background: var(--color-off-white);
+  margin-inline: calc(-1 * var(--space-md));
+  padding-inline: var(--space-md);
+}
+
+.service-block__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.service-block__icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.service-block__header h2 {
+  color: var(--color-navy);
+}
+
+.service-block p {
+  margin-bottom: var(--space-sm);
+  max-width: 70ch;
+}
+
+.service-block__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.service-block__list li {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   REVIEWS SNAPSHOT
+============================================ */
+.reviews-snap__grid {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.review-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.review-card__stars {
+  font-size: 1.1rem;
+  margin-bottom: var(--space-xs);
+}
+
+.review-card__text {
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.review-card__author {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* ============================================
+   DESKTOP OVERRIDES
+   min-width: 768px = tablet and above
+============================================ */
+@media (min-width: 768px) {
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__phone {
+    display: block;
+  }
+
+  .nav__hamburger {
+    display: none;
+  }
+
+  .call-bar {
+    display: none; /* desktop doesn't need it — phone is in the nav */
+  }
+
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .site-footer {
+    padding-bottom: var(--space-lg);
+  }
+
+  .services-snap__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reviews-snap__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-snap__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

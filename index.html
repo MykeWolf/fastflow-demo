@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+  DOCTYPE tells the browser: "render this as modern HTML5".
+  Without it, browsers go into quirks mode and layout breaks.
+-->
+<html lang="en">
+<head>
+  <!--
+    The <head> is invisible to users.
+    It loads fonts, styles, and tells Google what the page is about.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    viewport meta tag = the single most important line for mobile.
+    Without it, mobile browsers zoom out to show a desktop layout.
+    "width=device-width" means: use the actual screen width.
+  -->
+  <title>FastFlow Emergency Plumbing | South Dublin | 24/7 Call-Out</title>
+  <meta name="description" content="Emergency plumber in South Dublin. Burst pipes, blocked drains, boiler breakdowns. On-site in 60 minutes. Call FastFlow now.">
+
+  <!-- Google Fonts — two fonts loaded in one request for speed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+    HEADER — sticky, always visible
+    position: sticky in CSS means it scrolls
+    with you until it hits the top, then locks.
+  =========================================== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="index.html" class="nav__logo">Fast<span>Flow</span></a>
+
+        <!-- Desktop nav links — hidden on mobile via CSS -->
+        <ul class="nav__links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Phone number — desktop only -->
+        <a href="tel:+35301234567" class="nav__phone">📞 01 234 5678</a>
+
+        <!-- CTA button — always visible -->
+        <a href="tel:+35301234567" class="btn btn--primary nav__cta">Call Now</a>
+
+        <!-- Hamburger — mobile only, hidden on desktop via CSS -->
+        <button class="nav__hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    <div class="mobile-menu">
+      <a href="services.html">Services</a>
+      <a href="areas.html">Areas We Cover</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+      <a href="tel:+35301234567" style="color: var(--color-orange)">📞 01 234 5678</a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+    HERO SECTION
+    This is the most important section on the site.
+    A plumber searching Google on their phone sees this first.
+    Job: make them call within 5 seconds.
+  =========================================== -->
+  <section class="hero section section--dark">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">⚡ Available 24/7 — South Dublin</p>
+        <h1>Burst Pipe? Blocked Drain? We're in South Dublin in 60 Minutes.</h1>
+        <p class="hero__sub">FastFlow covers Ranelagh, Rathmines, Terenure, Crumlin &amp; Rathfarnham. Fixed-price callouts. No hidden charges.</p>
+        <div class="hero__actions">
+          <a href="tel:+35301234567" class="btn btn--primary btn--lg">📞 Call Now — 01 234 5678</a>
+          <a href="contact.html" class="btn btn--outline btn--lg">Get a Free Quote</a>
+        </div>
+        <div class="hero__trust">
+          <span>⭐⭐⭐⭐⭐ 120+ Google Reviews</span>
+          <span>✔ RGI Registered</span>
+          <span>✔ Fully Insured</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+    TRUST BAR
+    A horizontal strip of quick-hit trust signals.
+    Plumbers live or die by trust — "will this person
+    actually show up and not rip me off?"
+  =========================================== -->
+  <section class="trust-bar section--tinted">
+    <div class="container">
+      <ul class="trust-bar__list">
+        <li>🕐 60-Min Response</li>
+        <li>💳 Card &amp; Cash Accepted</li>
+        <li>📍 South Dublin Only</li>
+        <li>🔧 15+ Years Experience</li>
+        <li>📞 No Call-Out Fee After 7pm</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==========================================
+    SERVICES SNAPSHOT
+    Don't make people navigate to find out what you do.
+    Show the top 4 problems on the homepage.
+  =========================================== -->
+  <section class="services-snap section">
+    <div class="container">
+      <h2>What We Fix</h2>
+      <p>Every job is a fixed-price callout. You know the cost before we start.</p>
+      <div class="services-snap__grid">
+        <a href="services.html" class="service-card">
+          <span class="service-card__icon">💧</span>
+          <h3>Burst &amp; Leaking Pipes</h3>
+          <p>Emergency response within 60 minutes across South Dublin.</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <span class="service-card__icon">🚿</span>
+          <h3>Blocked Drains</h3>
+          <p>Sinks, toilets, showers — cleared same day.</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <span class="service-card__icon">🔥</span>
+          <h3>Boiler Breakdown</h3>
+          <p>No heat or hot water? We'll diagnose and repair fast.</p>
+        </a>
+        <a href="services.html" class="service-card">
+          <span class="service-card__icon">🛁</span>
+          <h3>Hot Water Cylinder</h3>
+          <p>Repair or replacement — all cylinder types covered.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+    SOCIAL PROOF (Reviews Snapshot)
+    Named testimonials with locations build local trust.
+    "John from Ranelagh" is more credible than "A Customer".
+  =========================================== -->
+  <section class="reviews-snap section section--tinted">
+    <div class="container">
+      <h2>What South Dublin Homeowners Say</h2>
+      <div class="reviews-snap__grid">
+        <div class="review-card">
+          <p class="review-card__stars">⭐⭐⭐⭐⭐</p>
+          <p class="review-card__text">"Burst pipe on a Sunday night — FastFlow were at the door in 45 minutes. Sorted in an hour. Brilliant service."</p>
+          <p class="review-card__author">— Declan M., Ranelagh</p>
+        </div>
+        <div class="review-card">
+          <p class="review-card__stars">⭐⭐⭐⭐⭐</p>
+          <p class="review-card__text">"Boiler gave out on the coldest day of January. Had heat back within 3 hours. Very fair price, very professional."</p>
+          <p class="review-card__author">— Sarah K., Rathmines</p>
+        </div>
+        <div class="review-card">
+          <p class="review-card__stars">⭐⭐⭐⭐⭐</p>
+          <p class="review-card__text">"Completely blocked kitchen drain. Lads were on-site within the hour, no mess left behind. Would highly recommend."</p>
+          <p class="review-card__author">— Paul O'Brien, Terenure</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: var(--space-lg);">
+        <a href="reviews.html" class="btn btn--primary">Read All Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+    FINAL CTA SECTION
+    Every page should end with a clear next step.
+    Never let a visitor scroll to a dead end.
+  =========================================== -->
+  <section class="cta-band section section--dark">
+    <div class="container" style="text-align:center;">
+      <h2>Need a Plumber in South Dublin Right Now?</h2>
+      <p style="max-width: 50ch; margin-inline: auto;">We cover Ranelagh, Rathmines, Terenure, Crumlin and Rathfarnham. Call now or send us your details and we'll call you back.</p>
+      <div style="display:flex; gap: 1rem; justify-content:center; flex-wrap:wrap; margin-top: var(--space-lg);">
+        <a href="tel:+35301234567" class="btn btn--primary btn--lg">📞 01 234 5678</a>
+        <a href="contact.html" class="btn btn--outline btn--lg">Request a Callback</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+    FOOTER
+  =========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <p class="footer__brand">Fast<span>Flow</span> Emergency Plumbing</p>
+          <p>South Dublin's 24/7 emergency plumber. On-site in 60 minutes.</p>
+        </div>
+        <div>
+          <p style="color:white; font-weight:700; margin-bottom:0.75rem;">Services</p>
+          <ul style="display:flex; flex-direction:column; gap:0.5rem;">
+            <li><a href="services.html">Burst Pipes</a></li>
+            <li><a href="services.html">Blocked Drains</a></li>
+            <li><a href="services.html">Boiler Repair</a></li>
+            <li><a href="services.html">Cylinder Repair</a></li>
+          </ul>
+        </div>
+        <div>
+          <p style="color:white; font-weight:700; margin-bottom:0.75rem;">Areas</p>
+          <ul style="display:flex; flex-direction:column; gap:0.5rem;">
+            <li><a href="areas.html">Ranelagh</a></li>
+            <li><a href="areas.html">Rathmines</a></li>
+            <li><a href="areas.html">Terenure</a></li>
+            <li><a href="areas.html">Crumlin</a></li>
+            <li><a href="areas.html">Rathfarnham</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 FastFlow Emergency Plumbing. RGI Registered. Fully Insured. South Dublin.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+    STICKY CALL BAR (mobile only)
+    Fixed to the bottom of the screen.
+    This is why mobile trades sites convert —
+    the phone number is always one tap away.
+  =========================================== -->
+  <div class="call-bar">
+    <a href="tel:+35301234567">📞 Call Now</a>
+    <a href="contact.html">✉ Get a Quote</a>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
